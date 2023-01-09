@@ -7,6 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   mode: 'development',
   resolve: {
@@ -30,13 +31,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.scss$/,
+        test: /\.css$/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
           },
           'css-loader',
-          'sass-loader',
         ],
       },
     ],
@@ -53,6 +53,7 @@ module.exports = {
 
   devServer: {
     compress: true,
+    historyApiFallback: true,
     port: 3005,
   },
 };
